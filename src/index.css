@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+}
+
+
+input::placeholder,
+textarea::placeholder {
+  font-family: 'Raleway', sans-serif; 
+  color: #aaa;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+a,
+nav_button {
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  color: #000;
+  transition: .4s;
+  font-size: 1em;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+}
+
+a:hover,
+nav button:hover {
+  color: #b4b4b4;
+}
