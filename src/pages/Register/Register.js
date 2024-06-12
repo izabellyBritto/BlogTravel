@@ -1,31 +1,94 @@
-import styles from "./Register.module.css"; 
-import { useState, useEffect } from "react"; 
+import React, { useState, useEffect } from 'react';
+import styles from './Register.module.css';
+import { useAuthentication } from '../../hooks/useAuthentication';
 
-const Register = () => { 
-    return ( 
-    <div className={styles.container}> 
-      <form className={styles.form}> 
-        <h1>Cadastre-se para postar</h1> 
-        <label> 
-            <span>Nome:</span> 
-            <input type="text" name="displayName" required placeholder="Nome Usuário" /> 
-        </label> 
-        <label> 
-            <span>E-mail:</span> 
-            <input type="text" name="displayEmail" required placeholder="E-mail Usuário" /> 
-        </label> 
-        <label> 
-            <span>Senha:</span> 
-            <input type="password" name="displayPassword" required placeholder="Senha Usuário" /> 
-        </label> 
-        <label> 
-            <span>Confirmação de Senha:</span> 
-            <input type="password" name="displayConfirm" required placeholder="Confirme Senha Usuário" /> 
-        </label> 
-        <button className={styles.btn}>Cadastrar</button> 
-      </form> 
-    </div> 
-  ); 
-}; 
+const Register = () => {
+    const [Name, setName] = useState('');
+    const [Email, setEmail] = useState('');
+    const [Password, setPassword] = useState('');
+    const [Confirm, setConfirm] = useState('');
+    const [error, setError] = useState('');
+    const { createUser, error: authError, loading } = useAuthentication();
 
-export default Register; 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
+
+        const user = { displayName: Name, email: Email, password: Password };
+
+        if (Password !== Confirm) {
+            setError('As senhas precisam ser iguais!');
+            return;
+        }
+
+        const res = await createUser(user);
+        if (res) {
+
+        }
+    };
+
+    useEffect(() => {
+        if (authError) {
+            setError(authError);
+        }
+    }, [authError]);
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.register}>
+                <h1>Cadastre-se</h1>
+                <form onSubmit={handleSubmit}>
+                    <label>
+                        <span>Nome:</span>
+                        <input
+                            type="text"
+                            name="Name"
+                            required
+                            placeholder="Nome Usuário"
+                            value={Name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </label>
+                    <label>
+                        <span>E-mail:</span>
+                        <input
+                            type="email"
+                            name="Email"
+                            required
+                            placeholder="E-mail do Usuário"
+                            value={Email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </label>
+                    <label>
+                        <span>Senha:</span>
+                        <input
+                            type="password"
+                            name="Password"
+                            required
+                            placeholder="Senha Usuário"
+                            value={Password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </label>
+                    <label>
+                        <span>Confirmação de Senha:</span>
+                        <input
+                            type="password"
+                            name="Confirm"
+                            required
+                            placeholder="Confirme Senha Usuário"
+                            value={Confirm}
+                            onChange={(e) => setConfirm(e.target.value)}
+                        />
+                    </label>
+                    {!loading && <button className={styles.btn}>Cadastrar</button>}
+                    {loading && <button className={styles.btn} disabled>Aguarde...</button>}
+                    {error && <p className={styles.error}>{error}</p>}
+                </form>
+            </div>
+        </div>
+    );
+};
+
+export default Register;

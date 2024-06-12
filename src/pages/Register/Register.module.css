@@ -1,54 +1,91 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 84vh;
-  }
-  h1{
-    font-style: bold;
-  }
-
-  form {
-    width: 300px;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 10px;
-    font-family: 'Raleway', sans-serif; 
-  }
- 
-  input {
-    width: 100%;
-    padding: 17px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    cursor: pointer;
-  }
-  input:hover {
-    background-color: #f5f5f5;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease; 
-   cursor: pointer;
+label span {
+  display: flex;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 5px;
+  font-size: 14px;
 }
-  button {
-    width: 100%;
-    padding: 15px 10px;
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 7px;
-    transition: box-shadow 0.3s ease; 
-  }
+
+label i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+label input {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 78vh;
+}
+
+h1 {
+  font-style: bold;
+  display: ruby-text;
+  font-size: 18px;
+}
+
+form {
+  width: 300px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+input:hover {
+  background-color: #f5f5f5;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: box-shadow 0.3s ease;
+  font-size: 14px;
+}
+
 button:hover {
-    background-color: #707070;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: 0.3s ease; 
+  background-color: #707070;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
 }

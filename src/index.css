@@ -1,15 +1,13 @@
 body {
   margin: 0;
-  font-family: 'Raleway', sans-serif; 
+  font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- 
 }
-
 
 input::placeholder,
 textarea::placeholder {
-  font-family: 'Raleway', sans-serif; 
+  font-family: "Raleway", sans-serif;
   color: #aaa;
 }
 
@@ -24,10 +22,10 @@ nav_button {
   background-color: transparent;
   border: none;
   color: #000;
-  transition: .4s;
+  transition: 0.4s;
   font-size: 1em;
   cursor: pointer;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 a:hover,
