@@ -8,11 +8,13 @@ const Register = () => {
     const [Password, setPassword] = useState('');
     const [Confirm, setConfirm] = useState('');
     const [error, setError] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
     const { createUser, error: authError, loading } = useAuthentication();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
+        setSuccessMessage('');
 
         const user = { displayName: Name, email: Email, password: Password };
 
@@ -23,7 +25,7 @@ const Register = () => {
 
         const res = await createUser(user);
         if (res) {
-
+            setSuccessMessage('Cadastrado com sucesso!');
         }
     };
 
@@ -82,7 +84,7 @@ const Register = () => {
                             onChange={(e) => setConfirm(e.target.value)}
                         />
                     </label>
-                    {!loading && <button className={styles.btn}>Cadastrar</button>}
+                    {!loading && <button className={styles.btn}>{successMessage || 'Cadastrar'}</button>}
                     {loading && <button className={styles.btn} disabled>Aguarde...</button>}
                     {error && <p className={styles.error}>{error}</p>}
                 </form>
